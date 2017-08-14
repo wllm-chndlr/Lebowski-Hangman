@@ -1,0 +1,43 @@
+
+
+Generate random word
+Display blanks instead of letters
+
+
+Get user input
+
+	Check to see if user input is in word (how?)
+
+	If input correct
+		fill the letter in the blank(s) (using a replace function)
+		decrease # of guesses by 1 (use guess--)
+
+	If input incorrect:
+		decrease # of guesses by 1 (use guess--)
+		add letter to "already picked" section (push to array?)
+
+	In input already selected, do nothing
+
+
+If user completes word: (currentWord.length < 1)
+	say "great job!"
+	play some happy music
+	wins++
+
+If user uses all XX guesses: (guesses left == 0)
+	say "you lose"
+	play some sad music
+	losses++
+
+Reset (new word, guesses reset, etc.)
+
+
+
+SECTIONS
+
+Press any key to get started!
+Current word
+# of guesses remaining
+Letters already picked
+Wins
+Losses
