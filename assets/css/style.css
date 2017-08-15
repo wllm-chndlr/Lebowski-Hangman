@@ -1,10 +1,11 @@
 
 
 body {
-	background-image: url(../images/lebowski1.jpg);
+	background-image: url(../images/lebowski1x3.png);
+	/*background-repeat: repeat-y;*/
 	color: #545952;
 	font-family: 'Russo One', sans-serif;
-	max-width: 100%;
+	width: 100%;
 	font-weight: 900px;
 	font-size: 30px;
 }
@@ -31,14 +32,18 @@ a:hover {
 }
 
 .panel {
-	background-color: #313630;
+	/*background-color: #313630;*/
 	color: #fff;
-	opacity: 0.6;
+	opacity: 0.7;
+	background: linear-gradient(#000, #869085);
 }
 
 #start {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	margin-bottom: 0px;
+	/*float: right;*/
+	/*text-align: right;*/
+	font-size: 25px;
 }
 
 .footer {
@@ -49,5 +54,5 @@ a:hover {
 	text-align: center;
 	font-size: 12px;
 	padding-top: 15px;
-	font-weight: 600px;
+	font-weight: 300px;
 }

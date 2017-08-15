@@ -2,7 +2,7 @@ var allLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p
 var words = ['abide', 'bunny', 'beverage', 'dude', 'rug', 'nihilist', 'bowling', 'prince', 'housebroken', 'undies', 'sarsaparilla', 'strumpet', 'fascist', 'coitus', 'zesty', 'marmot', 'walrus', 'cleft', 'aggression', 'pacifism', 'vagrant', 'moonless'];
 var currentWord = words[Math.floor(Math.random() * words.length)];
 var guessWord = ""; //empty string to hold guesses
-var guesses = currentWord.length+3; //remaining guesses
+var guesses = currentWord.length+5; //remaining guesses
 var lettersGuessed = [];
 var wins = 0;
 var losses = 0;
@@ -15,8 +15,8 @@ console.log(currentWord); //hint
 
 document.querySelector('#game').innerHTML = 
 "Current word:<br>" + guessWord +
-"<br><br> Number of guesses:<br>" + guesses +
-"<br><br> Letters already guessed:<br>" + lettersGuessed +
+"<br><br> Guesses remaining:<br>" + guesses +
+"<br><br> Letters guessed:<br>" + lettersGuessed +
 "<br>";
 
 document.querySelector('#stats').innerHTML = 
@@ -44,7 +44,6 @@ function reset() {
 document.onkeyup = function(event) {
 
   var userInput = event.key;
-  // var inWord = false;
 
   if ((allLetters.includes(userInput)) === false) {
     alert("Please select a letter from a-z");
@@ -54,23 +53,22 @@ document.onkeyup = function(event) {
     return("You already guessed that one!");
   }
 
-  else {
+  // else {
 
   for (var i = 0; i < currentWord.length; i++) {
     
     if (userInput == currentWord[i]) {
       guessWord = swapLetter(guessWord, i, userInput);
-      // inWord = true;
     }
 
   }
 
-    if (userInput != currentWord[i] && allLetters.includes(userInput)) {
+    if ((userInput != currentWord[i]) && (allLetters.includes(userInput))) {
       lettersGuessed.push(userInput);
       guesses--;
     }
 
-  }
+  // }
 
 
     if (guesses < 1) {
@@ -80,15 +78,16 @@ document.onkeyup = function(event) {
     }
 
     if (guessWord.indexOf("_") === -1) {
-      alert("The Dude abides!");
+      alert("Far out, man. Far ******* out!");
       wins++;
       reset();
     }
 
   var html = 
   "Current word:<br>" + guessWord +
-  "<br><br> Number of guesses:<br>" + guesses +
-  "<br><br> Letters already guessed:<br>" + lettersGuessed;
+  "<br><br> Guesses remaining:<br>" + guesses +
+  "<br><br> Letters guessed:<br>" + lettersGuessed +
+  "<br>";
   // "<br><br>Wins:<br>" + wins +
   // "<br><br>Losses:<br>" + losses;
   document.querySelector('#game').innerHTML = html;
