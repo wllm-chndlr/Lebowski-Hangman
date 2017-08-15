@@ -3,7 +3,7 @@ var words = ['abide', 'bunny', 'beverage', 'dude', 'rug', 'nihilist', 'bowling',
 var currentWord = words[Math.floor(Math.random() * words.length)];
 var guessWord = ""; //empty string to hold guesses
 var guesses = currentWord.length+5; //remaining guesses
-var lettersGuessed = [];
+var lettersGuessed = []; //empty array to hold incorrect letters
 var wins = 0;
 var losses = 0;
 
@@ -36,7 +36,7 @@ function reset() {
   for (var i = 0; i < currentWord.length; i++) {
   guessWord = guessWord + "_";
   }
-  guesses = 10;
+  guesses = currentWord.length+5;
   lettersGuessed = [];
   console.log(currentWord);
 }
@@ -44,6 +44,7 @@ function reset() {
 document.onkeyup = function(event) {
 
   var userInput = event.key;
+  var inWord = false;
 
   if ((allLetters.includes(userInput)) === false) {
     alert("Please select a letter from a-z");
@@ -53,35 +54,42 @@ document.onkeyup = function(event) {
     return("You already guessed that one!");
   }
 
-  // else {
-
   for (var i = 0; i < currentWord.length; i++) {
     
     if (userInput == currentWord[i]) {
       guessWord = swapLetter(guessWord, i, userInput);
+      inWord = true;
     }
 
   }
 
-    if ((userInput != currentWord[i]) && (allLetters.includes(userInput))) {
+  // if ((userInput != currentWord[i]) && (allLetters.includes(userInput))) {
+  //     lettersGuessed.push(userInput);
+  //     guesses--;
+  //   }
+
+  if (!inWord && allLetters.includes(userInput)) {
       lettersGuessed.push(userInput);
       guesses--;
     }
 
+  if (guesses < 1) {
+    alert("You human paraquat!");
+    losses++;
+    reset();
+  }
+
+  if (guessWord.indexOf("_") === -1) {
+    alert("Far out, man. Far ******* out!");
+    wins++;
+    reset();
+  }
+
+  // if (guessWord.length == 0) {
+  //   alert("Far out, man. Far ******* out!");
+  //   wins++;
+  //   reset();
   // }
-
-
-    if (guesses < 1) {
-      alert("You human paraquat!");
-      losses++;
-      reset();
-    }
-
-    if (guessWord.indexOf("_") === -1) {
-      alert("Far out, man. Far ******* out!");
-      wins++;
-      reset();
-    }
 
   var html = 
   "Current word:<br>" + guessWord +
