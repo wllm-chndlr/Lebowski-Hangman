@@ -62,13 +62,14 @@ document.onkeyup = function(event) {
       guessWord = swapLetter(guessWord, i, userInput);
       // inWord = true;
     }
-    
+
   }
 
-    if (userInput != currentWord[i]) {
+    if (userInput != currentWord[i] && allLetters.includes(userInput)) {
       lettersGuessed.push(userInput);
       guesses--;
     }
+
   }
 
 

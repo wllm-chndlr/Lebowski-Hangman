@@ -2,7 +2,7 @@
 
 body {
 	background-image: url(../images/lebowski1.jpg);
-	color: #313630;
+	color: #545952;
 	font-family: 'Russo One', sans-serif;
 	max-width: 100%;
 	font-weight: 900px;
@@ -22,10 +22,23 @@ nav.navbar.navbar-default {
 	font-size: 40px;
 }
 
+div.navbar-header:hover {
+	color: #869085;
+}
+
+a:hover {
+	color: #869085;
+}
+
 .panel {
 	background-color: #313630;
 	color: #fff;
 	opacity: 0.6;
+}
+
+#start {
+	margin-top: 20px;
+	margin-bottom: 0px;
 }
 
 .footer {
