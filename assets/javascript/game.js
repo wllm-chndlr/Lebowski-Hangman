@@ -42,7 +42,7 @@ function reset() {
 }
 
 var modalAZ = new tingle.modal({
-    footer: true,
+    footer: false,
     stickyFooter: false,
     closeMethods: ['overlay', 'button', 'escape'],
     closeLabel: "Close",
@@ -62,7 +62,7 @@ var modalAZ = new tingle.modal({
 });
 
 var modalWin = new tingle.modal({
-    footer: true,
+    footer: false,
     stickyFooter: false,
     closeMethods: ['overlay', 'button', 'escape'],
     closeLabel: "Close",
@@ -82,7 +82,7 @@ var modalWin = new tingle.modal({
 });
 
 var modalLose = new tingle.modal({
-    footer: true,
+    footer: false,
     stickyFooter: false,
     closeMethods: ['overlay', 'button', 'escape'],
     closeLabel: "Close",
@@ -101,12 +101,13 @@ var modalLose = new tingle.modal({
     }
 });
 
-var audioLose = new Audio('../audio/dios_mio_man.mp3');
+var audioWin = new Audio('assets/audio/far_out.mp3');
+var audioLose = new Audio('assets/audio/dios_mio_man.mp3');
 
 modalAZ.setContent('<h1>Please select a letter from a-z.</h1>');
 // modalWin.setContent('<h1>Far out, man. Far ******* out!</h1>');
-modalWin.setContent('<h1>Far out, man. Far ******* out!</h1><br><iframe src="https://giphy.com/embed/pWP6AQg2KMc2Q" width="240" height="232" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
-modalLose.setContent('<h1>You human paraquat!</h1><br><iframe src="https://giphy.com/embed/vxa4nwnjQ51za" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+modalWin.setContent('<h1>Far out, man.<br>Far ******* out!</h1><br><iframe src="https://giphy.com/embed/pWP6AQg2KMc2Q" width="240" height="232" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br><em>[close to try another one]</em>');
+modalLose.setContent('<h1>You failed,<br> you human paraquat!</h1><br><iframe src="https://giphy.com/embed/vxa4nwnjQ51za" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br><em>[close to try another one]</em>');
 
 document.onkeyup = function(event) {
 
@@ -144,7 +145,7 @@ document.onkeyup = function(event) {
   if (guesses < 1) {
     // alert("You human paraquat!");
     modalLose.open();
-    audioLose.play();
+    // audioLose.play();
     losses++;
     reset();
   }
@@ -152,6 +153,7 @@ document.onkeyup = function(event) {
   if (guessWord.indexOf("_") === -1) {
     // alert("Far out, man. Far ******* out!");
     modalWin.open();
+    // audioWin.play();
     wins++;
     reset();
   }

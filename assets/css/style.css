@@ -28,17 +28,17 @@ nav.navbar.navbar-default {
 }
 
 a:hover {
-	color: #869085;
+	color: orange;
 }
 
 .custom-class-1 {
-	color: #869085;
+	color: #aab7a8;
 	text-align: center;
 	/*background-color: #313630;*/
 }
 
 .custom-class-2 {
-	color: #869085;
+	color: #aab7a8;
 	text-align: center;
 	/*background-color: #80228e;*/
 }
