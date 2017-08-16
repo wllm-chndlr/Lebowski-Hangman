@@ -1,5 +1,5 @@
 var allLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var words = ['abide', 'bunny', 'beverage', 'dude', 'rug', 'nihilist', 'bowling', 'prince', 'housebroken', 'undies', 'sarsaparilla', 'strumpet', 'fascist', 'coitus', 'zesty', 'marmot', 'walrus', 'cleft', 'aggression', 'pacifism', 'vagrant', 'moonless'];
+var words = ['abide', 'bunny', 'beverage', 'dude', 'rug', 'nihilist', 'bowling', 'prince', 'housebroken', 'undies', 'strumpet', 'fascist', 'coitus', 'zesty', 'marmot', 'walrus', 'cleft', 'aggression', 'pacifism', 'vagrant', 'moonless'];
 var currentWord = words[Math.floor(Math.random() * words.length)];
 var guessWord = ""; //empty string to hold guesses
 var guesses = currentWord.length+5; //remaining guesses
@@ -41,13 +41,81 @@ function reset() {
   console.log(currentWord);
 }
 
+var modalAZ = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['custom-class-1'],
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+      return false; // nothing happens
+    }
+});
+
+var modalWin = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['custom-class-1'],
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+      return false; // nothing happens
+    }
+});
+
+var modalLose = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['custom-class-2'],
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+      return false; // nothing happens
+    }
+});
+
+var audioLose = new Audio('../audio/dios_mio_man.mp3');
+
+modalAZ.setContent('<h1>Please select a letter from a-z.</h1>');
+// modalWin.setContent('<h1>Far out, man. Far ******* out!</h1>');
+modalWin.setContent('<h1>Far out, man. Far ******* out!</h1><br><iframe src="https://giphy.com/embed/pWP6AQg2KMc2Q" width="240" height="232" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+modalLose.setContent('<h1>You human paraquat!</h1><br><iframe src="https://giphy.com/embed/vxa4nwnjQ51za" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+
 document.onkeyup = function(event) {
 
   var userInput = event.key;
   var inWord = false;
 
   if ((allLetters.includes(userInput)) === false) {
-    alert("Please select a letter from a-z");
+    // alert("Please select a letter from a-z");
+    modalAZ.open();
   }
 
   if (lettersGuessed.indexOf(userInput) != -1) {
@@ -74,13 +142,16 @@ document.onkeyup = function(event) {
     }
 
   if (guesses < 1) {
-    alert("You human paraquat!");
+    // alert("You human paraquat!");
+    modalLose.open();
+    audioLose.play();
     losses++;
     reset();
   }
 
   if (guessWord.indexOf("_") === -1) {
-    alert("Far out, man. Far ******* out!");
+    // alert("Far out, man. Far ******* out!");
+    modalWin.open();
     wins++;
     reset();
   }
