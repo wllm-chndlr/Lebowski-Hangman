@@ -6,7 +6,6 @@
   <title>[hang]man</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/tingle.min.css">
-  <!-- <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Chewy|Russo+One" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -16,7 +15,7 @@
     <nav class="navbar navbar-default">
       <div class="container top">
         <div class="navbar-header">
-          <p class="navbar-brand">The [hang]man is not the issue here, Dude!</p>
+          <p class="navbar-brand" id="header"><a href="index.html">The [hang]man is not the issue here, Dude!</a></p>
         </div>
       </div>
     </nav>
@@ -52,31 +51,20 @@
         <div class="col-md-1 win-lose">
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="panel panel-default">
-            <div class="panel-body">
+            <div class="panel-body" id="statsdiv">
               <p id="stats"></p>
             </div>
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
         </div>
 
       </div>
 
     </div>
-
-<!--     <div class="container">
-
-      <div class="row">
-        <div class="col-md-12" id="win-lose">
-        <br>
-          <p>win/lose</p>
-        </div>
-      </div>
-
-    </div> -->
 
     <div class="footer navbar-fixed-bottom">
       <footer>
@@ -89,7 +77,4 @@
 
   </body>
 
-    <!-- <script src="assets/javascript/game.js" type="text/javascript"></script> -->
-
 </html>
-

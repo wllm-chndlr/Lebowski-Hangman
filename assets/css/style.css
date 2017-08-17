@@ -1,8 +1,5 @@
-
-
 body {
 	background-image: url(../images/lebowski1x3.png);
-	/*background-repeat: repeat-y;*/
 	color: #545952;
 	font-family: 'Russo One', sans-serif;
 	width: 100%;
@@ -14,9 +11,14 @@ body {
 	padding-top: 25px;
 }
 
+#header:hover {
+	color: orange;
+}
+
 nav.navbar.navbar-default {
 	height: 100px;
 	background-color: #313630;
+	border-bottom: 3px solid orange;
 }
 
 .navbar-brand {
@@ -27,20 +29,14 @@ nav.navbar.navbar-default {
 	color: #fff;
 }
 
-a:hover {
-	color: orange;
-}
-
 .custom-class-1 {
-	color: #aab7a8;
+	color: #fff;
 	text-align: center;
-	/*background-color: #313630;*/
 }
 
 .custom-class-2 {
-	color: #aab7a8;
+	color: #fff;
 	text-align: center;
-	/*background-color: #80228e;*/
 }
 
 .giphy-embed {
@@ -57,18 +53,25 @@ a:hover {
 }
 
 .panel {
-	/*background-color: #313630;*/
 	color: #fff;
 	opacity: 0.7;
 	background: linear-gradient(#000, #869085);
+	border: 3px solid orange;
 }
 
 #start {
-	/*margin-top: 20px;*/
 	margin-bottom: 0px;
-	/*float: right;*/
-	/*text-align: right;*/
 	font-size: 25px;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+a:hover {
+	text-decoration: none;
+	color: orange;
 }
 
 .footer {
@@ -80,4 +83,23 @@ a:hover {
 	font-size: 12px;
 	padding-top: 15px;
 	font-weight: 300px;
+	border-top: 3px solid orange;
+}
+
+@media screen and (max-width: 991px) {
+	
+	nav.navbar.navbar-default {
+	height: 140px;
+	}
+	
+	.navbar-brand {
+	font-size: 40px;
+	line-height: 1.25;
+	padding-top: 0px;
+	}
+
+	#statsdiv {
+	margin-bottom: 40px;
+	}
+
 }
