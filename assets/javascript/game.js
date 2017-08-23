@@ -13,13 +13,13 @@ for (var i = 0; i < currentWord.length; i++) {
 
 console.log(currentWord); //hint
 
-document.querySelector('#game').innerHTML = 
+document.querySelector('#game').innerHTML =
 "Current word:<br>" + guessWord +
 "<br><br> Guesses remaining:<br>" + guesses +
 "<br><br> Letters guessed:<br>" + lettersGuessed +
 "<br>";
 
-document.querySelector('#stats').innerHTML = 
+document.querySelector('#stats').innerHTML =
 "Strikes:<br>" + wins +
 "<br><br>Gutters:<br>" + losses;
 
@@ -55,8 +55,8 @@ var modalAZ = new tingle.modal({
       console.log('modal closed');
     },
     beforeClose: function() {
-      return true; 
-      return false; 
+      return true;
+      return false;
     }
 });
 
@@ -74,8 +74,8 @@ var modalWin = new tingle.modal({
       console.log('modal closed');
     },
     beforeClose: function() {
-      return true; 
-      return false; 
+      return true;
+      return false;
     }
 });
 
@@ -93,8 +93,8 @@ var modalLose = new tingle.modal({
       console.log('modal closed');
     },
     beforeClose: function() {
-      return true; 
-      return false; 
+      return true;
+      return false;
     }
 });
 
@@ -104,7 +104,7 @@ modalWin.setContent('<h1>Far out, man.<br>Far ******* out!</h1><br><iframe src="
 
 modalLose.setContent('<h1>You...human paraquat!</h1><br><iframe src="https://giphy.com/embed/vxa4nwnjQ51za" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br><em>[close to try another one]</em><br>');
 
-document.onkeyup = function(event) {
+document.addEventListener('keyup', function(event) {
 
   var userInput = event.key;
   var correct = false;
@@ -141,7 +141,7 @@ document.onkeyup = function(event) {
     reset();
   }
 
-  var html = 
+  var html =
   "Current word:<br>" + guessWord +
   "<br><br> Guesses remaining:<br>" + guesses +
   "<br><br> Letters guessed:<br>" + lettersGuessed +
@@ -154,4 +154,4 @@ document.onkeyup = function(event) {
   "<br>";
   document.querySelector('#stats').innerHTML = html;
 
-}
+});
