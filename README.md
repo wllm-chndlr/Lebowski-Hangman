@@ -4,6 +4,6 @@
 
 #### Check it out [here](https://wllm-chndlr.github.io/Lebowski-Hangman/). Good luck!
 
-##### Created by William Chandler 2017 with Javascript, Bootstrap, Tingle, CSS, and HTML
+##### Created in 2017 with Javascript, Bootstrap, Tingle, CSS, and HTML
 
 ![app screenshot](assets/images/hangman.png)
