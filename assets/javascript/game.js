@@ -2,7 +2,7 @@ var allLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p
 var words = ['abide', 'bunny', 'beverage', 'golfer', 'dude', 'rug', 'brevity', 'pederast', 'nihilist', 'bowling', 'prince', 'housebroken', 'undies', 'strumpet', 'fascist', 'coitus', 'zesty', 'marmot', 'walrus', 'cleft', 'aggression', 'pacifism', 'vagrant', 'moonless', 'ethos'];
 var currentWord = words[Math.floor(Math.random() * words.length)];
 var guessWord = ""; //empty string to hold guesses
-var guesses = currentWord.length+5; //remaining guesses
+var guesses = currentWord.length + 5; //remaining guesses
 var lettersGuessed = []; //empty array to hold incorrect letters
 var wins = 0; //wins counter
 var losses = 0; //losses counter
@@ -10,8 +10,6 @@ var losses = 0; //losses counter
 for (var i = 0; i < currentWord.length; i++) {
   guessWord = guessWord + "_";
 }
-
-console.log(currentWord); //hint
 
 document.querySelector('#game').innerHTML =
 "Current word:<br>" + guessWord +
@@ -24,7 +22,7 @@ document.querySelector('#stats').innerHTML =
 "<br><br>Gutters:<br>" + losses;
 
 function swapLetter(str, i, userInput) {
-    if(i > str.length-1) {
+    if (i > str.length - 1) {
       return str;
     }
     return str.substr(0, i) + userInput + str.substr(i + 1);
@@ -34,11 +32,10 @@ function reset() {
   currentWord = words[Math.floor(Math.random() * words.length)];
   guessWord = "";
   for (var i = 0; i < currentWord.length; i++) {
-  guessWord = guessWord + "_";
+    guessWord = guessWord + "_";
   }
-  guesses = currentWord.length+5;
+  guesses = currentWord.length + 5;
   lettersGuessed = [];
-  console.log(currentWord);
 }
 
 //popup: pick letter from a-z
@@ -105,11 +102,10 @@ modalWin.setContent('<h1>Far out, man.<br>Far ******* out!</h1><br><iframe src="
 modalLose.setContent('<h1>You...human paraquat!</h1><br><iframe src="https://giphy.com/embed/vxa4nwnjQ51za" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br><em>[close to try another one]</em><br>');
 
 document.addEventListener('keyup', function(event) {
-
   var userInput = event.key;
   var correct = false;
 
-  if ((allLetters.includes(userInput)) === false) {
+  if (allLetters.includes(userInput) === false) {
     modalAZ.open();
   }
 
@@ -153,5 +149,4 @@ document.addEventListener('keyup', function(event) {
   "<br><br>Gutters:<br>" + losses +
   "<br>";
   document.querySelector('#stats').innerHTML = html;
-
 });
