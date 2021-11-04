@@ -97,7 +97,7 @@ var modalLose = new tingle.modal({
 
 modalAZ.setContent('<h1>Please select a letter from a-z.</h1>');
 
-modalWin.setContent('<h1>Far out, man.<br>Far ******* out!</h1><br><iframe src="https://giphy.com/embed/pWP6AQg2KMc2Q" width="240" height="232" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br><em>[close to try another one]</em><br>');
+modalWin.setContent('<h1>Far out, man.<br>Far ******* out!</h1><br><iframe src="https://giphy.com/embed/KmIhbVZSsOGpq" width="480" height="286" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br><em>[close to try another one]</em><br>');
 
 modalLose.setContent('<h1>You...human paraquat!</h1><br><iframe src="https://giphy.com/embed/vxa4nwnjQ51za" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br><em>[close to try another one]</em><br>');
 
