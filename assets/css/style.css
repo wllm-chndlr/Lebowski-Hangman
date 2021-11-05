@@ -2,9 +2,9 @@ body {
 	background-image: url(../images/lebowski1x3.png);
 	color: #545952;
 	font-family: 'Russo One', sans-serif;
-	width: 100%;
-	font-weight: 900px;
 	font-size: 30px;
+	font-weight: 900px;
+	width: 100%;
 }
 
 .navbar-header {
@@ -16,9 +16,9 @@ body {
 }
 
 nav.navbar.navbar-default {
-	height: 100px;
 	background-color: #313630;
 	border-bottom: 3px solid orange;
+	height: 100px;
 }
 
 .navbar-brand {
@@ -44,8 +44,8 @@ nav.navbar.navbar-default {
 }
 
 .tingle-modal-box {
+    background-color: #313630;
 	width: auto;
-	background-color: #313630;
 }
 
 .tingle-modal-box__footer {
@@ -53,53 +53,51 @@ nav.navbar.navbar-default {
 }
 
 .panel {
+    background: linear-gradient(#000, #869085);
+	border: 3px solid orange;
 	color: #fff;
 	opacity: 0.7;
-	background: linear-gradient(#000, #869085);
-	border: 3px solid orange;
 }
 
 #start {
-	margin-bottom: 0px;
 	font-size: 25px;
+	margin-bottom: 0px;
 }
 
 a {
-	text-decoration: none;
 	color: #fff;
+	text-decoration: none;
 }
 
 a:hover {
-	text-decoration: none;
 	color: orange;
+	text-decoration: none;
 }
 
 .footer {
-	height: 50px;
-	background-color: #313630;
-	color: #fff;
-	width: 100%;
-	text-align: center;
-	font-size: 12px;
-	padding-top: 15px;
-	font-weight: 300px;
+    background-color: #313630;
 	border-top: 3px solid orange;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 300px;
+	height: 50px;
+	text-align: center;
+	padding-top: 15px;
+	width: 100%;
 }
 
 @media screen and (max-width: 991px) {
-	
 	nav.navbar.navbar-default {
-	height: 140px;
+        height: 140px;
 	}
-	
+
 	.navbar-brand {
-	font-size: 40px;
-	line-height: 1.25;
-	padding-top: 0px;
+        font-size: 40px;
+        line-height: 1.25;
+        padding-top: 0px;
 	}
 
 	#statsdiv {
-	margin-bottom: 40px;
+        margin-bottom: 40px;
 	}
-
 }
