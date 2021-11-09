@@ -74,6 +74,10 @@ a:hover {
 	text-decoration: none;
 }
 
+#message-area {
+	text-align: center;
+}
+
 .footer {
     background-color: #313630;
 	border-top: 3px solid orange;

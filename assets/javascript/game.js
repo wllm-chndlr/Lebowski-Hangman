@@ -38,24 +38,11 @@ function reset() {
   lettersGuessed = [];
 }
 
-//popup: pick letter from a-z
-var modalAZ = new tingle.modal({
-    footer: false,
-    stickyFooter: false,
-    closeMethods: ['overlay', 'button', 'escape'],
-    closeLabel: "Close",
-    cssClass: ['custom-class-1'],
-    onOpen: function() {
-      console.log('modal open');
-    },
-    onClose: function() {
-      console.log('modal closed');
-    },
-    beforeClose: function() {
-      return true;
-      return false;
-    }
-});
+function initiateTimeout() {
+  setTimeout(() => {
+    document.querySelector('#message-area').innerHTML = ""
+  }, 1000);
+}
 
 //popup: win
 var modalWin = new tingle.modal({
@@ -64,16 +51,9 @@ var modalWin = new tingle.modal({
     closeMethods: ['overlay', 'button', 'escape'],
     closeLabel: "Close",
     cssClass: ['custom-class-1'],
-    onOpen: function() {
-      console.log('modal open');
+    onOpen() {
+      console.log(guessWord)
     },
-    onClose: function() {
-      console.log('modal closed');
-    },
-    beforeClose: function() {
-      return true;
-      return false;
-    }
 });
 
 //popup: lose
@@ -83,19 +63,7 @@ var modalLose = new tingle.modal({
     closeMethods: ['overlay', 'button', 'escape'],
     closeLabel: "Close",
     cssClass: ['custom-class-2'],
-    onOpen: function() {
-      console.log('modal open');
-    },
-    onClose: function() {
-      console.log('modal closed');
-    },
-    beforeClose: function() {
-      return true;
-      return false;
-    }
 });
-
-modalAZ.setContent('<h1>Please select a letter from a-z.</h1>');
 
 modalWin.setContent(`
     <h1>Far out, man.<br>Far ******* out!</h1>
@@ -119,12 +87,16 @@ document.addEventListener('keyup', function(event) {
   var userInput = event.key;
   var correct = false;
 
-  if (allLetters.includes(userInput) === false) {
-    modalAZ.open();
+  if (!allLetters.includes(userInput) && userInput !== 'Escape') {
+    document.querySelector('#message-area').innerHTML = "Please select a letter from a-z";
+
+    initiateTimeout();
   }
 
-  if (lettersGuessed.indexOf(userInput) != -1) {
-    return("You already guessed that one!");
+  if (lettersGuessed.indexOf(userInput) !== -1 || guessWord.includes(userInput)) {
+    document.querySelector('#message-area').innerHTML = "You already guessed that one!";
+
+    initiateTimeout();
   }
 
   for (var i = 0; i < currentWord.length; i++) {
@@ -134,10 +106,10 @@ document.addEventListener('keyup', function(event) {
     }
   }
 
-  if (!correct && allLetters.includes(userInput)) {
+  if (!correct && allLetters.includes(userInput) && !lettersGuessed.includes(userInput)) {
       lettersGuessed.push(userInput);
       guesses--;
-    }
+  }
 
   if (guesses < 1) {
     modalLose.open();
